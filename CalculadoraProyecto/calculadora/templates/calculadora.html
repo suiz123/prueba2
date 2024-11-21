@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora Básica</title>
+</head>
+<body>
+    <h1>Calculadora Básica</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Número 1:</label>
+        <input type="number" step="any" name="num1" required>
+        <br>
+        <label>Número 2:</label>
+        <input type="number" step="any" name="num2" required>
+        <br>
+        <label>Operación:</label>
+        <select name="operacion">
+            <option value="suma">Suma</option>
+            <option value="resta">Resta</option>
+            <option value="multiplicacion">Multiplicación</option>
+            <option value="division">División</option>
+        </select>
+        <br><br>
+        <button type="submit">Calcular</button>
+    </form>
+    {% if resultado is not None %}
+        <h2>Resultado: {{ resultado }}</h2>
+    {% endif %}
+</body>
+</html>
